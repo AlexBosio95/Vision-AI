@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risultati Google Vision</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            height: 550px;
+        }
+        .image-box {
+            flex: 1;
+            text-align: center;
+        }
+        .image-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .results-box {
+            flex: 1;
+            padding-left: 20px;
+        }
+        .label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        .label span {
+            font-weight: bold;
+            flex: 1;
+        }
+        .progress {
+            flex: 3;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-left: 10px;
+            position: relative;
+        }
+        .progress-bar {
+            height: 100%;
+            background-color: #1ead23;
+            text-align: right;
+            padding-right: 5px;
+            color: white;
+            line-height: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .progress-bar::after {
+            content: attr(data-label);
+            position: absolute;
+            right: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        h1, h2 {
+            color: #000000;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box image-box">
+            <h1>Risultati dell'analisi dell'immagine</h1>
+            <img src="data:image/png;base64,{{encoded_image}}" alt="Analysed Image">
+        </div>
+        <div class="box results-box">
+            <h2>Etichette rilevate</h2>
+            {{labels}}
+        </div>
+    </div>
+</body>
+</html>
